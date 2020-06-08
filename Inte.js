@@ -24,3 +24,27 @@ for(let i=0;i<100;i++){
     console.log(RandomArr([],5,2,32));
 }
 
+/**
+ * 数组扁平化、去重、排序
+ * 
+ * 已知如下数组：var arr = [ [1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14] ] ] ], 10];
+ * 编写一个程序将数组扁平化去并除其中重复部分数据，最终得到一个升序且不重复的数组
+ */
+var arr = [ [1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14] ] ] ], 10];
+function solution(arr){
+    return (Array.from(new Set(arr.flat(4)))).sort((a,b)=>a-b);
+}
+function flat1(arr) {
+    return arr.reduce(function(prev,next){
+        return prev.concat(Array.isArray(next)?flat1(next):next);
+    },[])
+}
+function flatten(arr) {
+
+    while (arr.some(item => Array.isArray(item))) {
+        arr = [].concat(...arr);
+    }
+
+    return arr;
+}
+console.log(flatten(arr));
