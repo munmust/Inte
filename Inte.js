@@ -47,3 +47,35 @@ function flatten(arr) {
     return arr;
 }
 console.log(flatten(arr));
+
+/**
+ * 编写一个函数计算多个数组的交集
+ * 要求：
+ * 输出结果中的每个元素一定是唯一的
+ */
+function getInterSection(...arrs){
+    return Array.from(new Set(arrs.reduce((result,arr)=>{
+        return arr.filter(item=>result.includes(item));
+    })))
+}
+console.log(getInterSection([1],[1,2,5],[1,56,67]));
+
+/**
+ *    写一个方法把下划线命名转成大驼峰命名
+ */
+function changeStr(str){
+    if(str.split('_').length==1)return;
+    return str.split('_').reduce((a,b)=>{
+      return a.substr(0,1).toUpperCase() + a.substr(1)+b.substr(0,1).toUpperCase() + b.substr(1)
+    })
+ }
+// 存在问题
+//  function changeStr2(str){
+//      str=str.replace(/(\w)/,(match,$1)=>`${$1.toUpperCase()}`)
+//      while(str.match(/_[a-z]/)){
+//          str.replace(/(\w)(_)(\w)/,(match,$1,$2,$3)=>`${$1}${$3.toUpperCase()}`)
+//      }
+//      return str;
+//  }
+console.log(changeStr2('a_c_def'));
+
