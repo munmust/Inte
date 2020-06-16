@@ -24,3 +24,19 @@
 - 弹性盒子
 - 媒体查询
 
+
+#### BFC的理解
+
+块级格式化上下文，独立的一个空间，里面的元素的改变不会影响到外部的元素
+同个BFC中的元素发生外边距折叠
+清除浮动
+阻止浮动元素的覆盖
+
+#### 如何创建一个三角形
+
+使用border来做
+width:0;height:0;
+border-top:50px solid transparent;
+border-left:50px solid transparent;
+border-right:50px solid transparent;
+border-bottom:50px solid red;
