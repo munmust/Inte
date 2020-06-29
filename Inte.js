@@ -46,6 +46,7 @@ function flatten(arr) {
 
     return arr;
 }
+
 console.log(flatten(arr));
 
 /**
