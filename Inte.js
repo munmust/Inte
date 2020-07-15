@@ -80,3 +80,29 @@ function changeStr(str){
 //  }
 console.log(changeStr2('a_c_def'));
 
+
+/**
+ * 实现一个 sleep 函数，比如 sleep(1000) 
+ * 意味着等待1000毫秒，
+ * 从 Promise、Generator、Async/Await 等角度实现
+ */
+const PromiseSleep=(time)=>{
+    return new Promise(resolve=>setTimeout(resolve,time));
+}
+PromiseSleep(1000).then(()=>{
+    XXX
+});
+const GeneratorSleep=(time)=>{
+    function* gen(){
+        yield new Promise(resolve=>setTimeout(()=>{resolve()},time));
+    }
+    return gen().next().value;
+}
+GeneratorSleep(1000).then(()=>{
+    XXX
+})
+const AsyncSleep=(time)=>{
+    await new Promise(resolve=>setTimeout(resolve,time));
+    XXX
+}
+AsyncSleep(1000);
