@@ -16,11 +16,24 @@ function RandomArr(arr,len,min,max){
     arr=Array.isArray(arr)?arr:[];
     if(len<1)return [];
     if(arr.length===len)return arr;
-    const num=Math.floor(Math.random()*(+max - +min+1))+ +min;
+        const num=Math.floor(Math.random()*(+max - +min+1))+ +min;
     if(!arr.includes(num))arr.push(num);
     return RandomArr(arr,len,min,max);
 }
-for(let i=0;i<100;i++){
-    console.log(RandomArr([],5,2,32));
+
+
+/**
+*   去除字符串中最后一个指定的字符
+*/
+
+function delChar(str,char){
+    return str.split('').reverse().join('').replace(char, '').split('').reverse().join('');
+};
+
+function delChars(str,char) {
+    let reg=new RegExp(`${char}(?=([^${char}]*)$)`);
+    str.replace(reg,'');
 }
 
+let str="asdfghjkl";
+console.log(delChar(str,'s'));
