@@ -136,7 +136,7 @@ function concatArr(arr1,arr2) {
     return item+3
   })
   return [...arr1,...arr2].sort().map((item=>{
-    item,includes('3')?item.split('')[0]:item;
+    item.includes('3')?item.split('')[0]:item;
   }))
 }
 
