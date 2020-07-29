@@ -139,3 +139,7 @@ function concatArr(arr1,arr2) {
     item,includes('3')?item.split('')[0]:item;
   }))
 }
+
+/*
+  合并两个已排序的链表
+*/
